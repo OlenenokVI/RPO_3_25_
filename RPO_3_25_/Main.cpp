@@ -2,6 +2,8 @@
 #include <windows.h>
 #include <cmath>
 
+// здарова)
+
 int main()
 {
 	SetConsoleCP(CP_UTF8);
