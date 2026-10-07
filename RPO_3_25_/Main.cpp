@@ -108,7 +108,6 @@ int Sum(int one, int two) {
 	return one + two;
 }
 
-
 int FillArray(int first[], int size) {
 	for (size_t i = 0; i < size; i++)
 	{
@@ -155,6 +154,33 @@ char ShowArray(char third[], int size) {
 	return ' ';
 }
 
+template <typename T1, typename Alex>
+double Substruct(T1 one, Alex two)
+{
+	T1 asd;
+	return one - two;
+}
+
+int Ymnoshenie(int num1, int num2) { // рекурсия
+	if (num2 == 0)
+	{
+		return 0;
+	}
+	return num1 + Ymnoshenie(num1, num2 - 1);
+}
+
+
+int Fak(int num) { // рекурсия
+	if (num < 0)
+	{
+		return 0;
+	}
+	else if (num == 0)
+	{
+		return 1;
+	}
+	return num * Fak(num - 1);
+}
 
 
 int main(){
@@ -162,8 +188,13 @@ int main(){
 	SetConsoleOutputCP(CP_UTF8);
 	srand(time(NULL));
 
+	Substruct(10.3, 7.4);
+	Substruct(10.3f, 7.4f);
+
 	Sum(6.2, 4.45);
 	Sum(4, 2);
+	Ymnoshenie(4, 3);
+	std::cout << Ymnoshenie(4, 3) << "\n";
 
 	const int size = 4;
 
@@ -720,3 +751,5 @@ int main(){
 
 */
 
+int Sum(int one, int two);
+char ShowArray(char third[], int size);
