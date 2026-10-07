@@ -1,8 +1,42 @@
 #include <iostream>
 #include <windows.h>
 #include <cmath>
+// здарова
+/*
+тип возврата Имя_функции(аргументы_функции, ..., ...)
+{
+	тело_функции
+}
 
-// здарова)
+double Plus(double one, double two)
+{
+	double answer;
+	return one + two;
+}
+double Minus(double one, double two)
+{
+	double answer;
+	answer = one - two;
+	return answer;
+}
+double Ymnoj(double one, double two)
+{
+	double answer;
+	answer = one * two;
+	return answer;
+}
+double Del(double one, double two)
+{
+	double answer;
+	answer = one / two;
+	return answer;
+}
+double Ost_of_del(double one, double two)
+{
+	double answer;
+	answer = fmod(one,two);
+	return answer;
+}
 
 int main()
 {
@@ -10,19 +44,138 @@ int main()
 	SetConsoleOutputCP(CP_UTF8);
 	srand(time(NULL));
 
+	char symvol;
+	double one, two;
 
-	const int row = 3, col = 4;
-	int arr[row][col]{};
+	std::cout << " ________________________________________________ \n";
+	std::cout << "|\t\t\t\t\t\t |\n";
+	std::cout << "| \t\t << КАЛЬКУЛЯТОР >> \t\t |\n";
+	std::cout << "|________________________________________________| \n\n";
+	std::cout << "Введите первое число: ";
+	std::cin >> one;
+	std::cout << "Введите второе число: ";
+	std::cin >> two;
+	std::cout << "Список символов: \n" << "+ <- сложение\n"
+		<< "- <- вычитание\n" << "* <- умножение\n" << "\\ <- деление\n" << "% <- остаток от деления\n";
+	std::cout << "Введите один из символов из списка: ";
+	std::cin >> symvol;
 
-	for (int i = 0; i < row; i++)
+	if (symvol == '+')
 	{
-		for (int j = 0; j < col; j++)
-		{
-			arr[i][j] = rand() % 10;
-			std::cout << arr[i][j] << " ";
-		}
-		std::cout << "\n";
+		std::cout << "\nВаш ответ:\n " << one << " + " << two << " = " << Plus(one, two) << "\n";
 	}
+	else if (symvol == '-')
+	{
+		std::cout << "\nВаш ответ:\n " << one << " - " << two << " = " << Minus(one, two) << "\n";
+	}
+	else if (symvol == '*')
+	{
+		std::cout << "\nВаш ответ:\n " << one << " * " << two << " = " << Ymnoj(one, two) << "\n";
+	}
+	else if (symvol == '\\')
+	{
+		if (two != 0)
+		{
+			std::cout << "\nВаш ответ:\n " << one << " \\ " << two << " = " << Del(one, two) << "\n";
+		}
+		else
+		{
+			std::cout << "Деления на 0 не существует!\n";
+		}
+	}
+	else if (symvol == '%')
+	{
+		if (two != 0)
+		{
+			std::cout << "\nВаш ответ:\n " << one << " % " << two << " = " << Ost_of_del(one, two) << "\n";
+		}
+		else
+		{
+			std::cout << "Деления на 0 не существует!\n";
+		}
+	}
+	else
+	{
+		std::cout << "некорректный ввод \n";
+	}
+}
+*/
+
+double Sum(double one, double two) {
+	return one + two;
+}
+int Sum(int one, int two) {
+	return one + two;
+}
+
+
+int FillArray(int first[], int size) {
+	for (size_t i = 0; i < size; i++)
+	{
+		first[i] = rand() % 10;
+	}
+	return 0;
+}
+double FillArray(double second[], int size) {
+	for (size_t i = 0; i < size; i++)
+	{
+		second[i] = (rand() % 20 + 1 ) + (double) (rand() % 9 + 1) / 10 ;
+	}
+	return 0;
+}
+char FillArray(char third[], int size) {
+	for (size_t i = 0; i < size; i++)
+	{
+		third[i] = (char)(rand() % 26 + 97);
+	}
+	return ' ';
+}
+
+int ShowArray(int first[], int size) {
+	for (size_t i = 0; i < size; i++)
+	{
+		std::cout << first[i] << " ";
+	}
+	return 0;
+}
+double ShowArray(double second[], int size) {
+	std::cout << "\n";
+	for (size_t i = 0; i < size; i++)
+	{
+		std::cout << second[i] << " ";
+	}
+	return 0;
+}
+char ShowArray(char third[], int size) {
+	std::cout << "\n";
+	for (size_t i = 0; i < size; i++)
+	{
+		std::cout << third[i] << " ";
+	}
+	return ' ';
+}
+
+
+
+int main(){
+	SetConsoleCP(CP_UTF8);
+	SetConsoleOutputCP(CP_UTF8);
+	srand(time(NULL));
+
+	Sum(6.2, 4.45);
+	Sum(4, 2);
+
+	const int size = 4;
+
+	int first[size]{};
+	double second[size]{};
+	char third[size]{};
+	FillArray(first, size);
+	FillArray(second, size);
+	FillArray(third, size);
+	ShowArray(first, size);
+	ShowArray(second, size);
+	ShowArray(third, size);
 
 
 	/*
@@ -50,6 +203,19 @@ int main()
 	arifmetich = symma / size;
 	std::cout << "\n Сумма положительных чисел: " << symmaPlus << "\n Сумма отрицательных чисел: "
 		<< symmaMin << "\n Среднее арифметическое: " << arifmetich << "\n";
+
+	const int row = 3, col = 4;
+	int arr[row][col]{};
+
+	for (int i = 0; i < row; i++)
+	{
+		for (int j = 0; j < col; j++)
+		{
+			arr[i][j] = rand() % 10;
+			std::cout << arr[i][j] << " ";
+		}
+		std::cout << "\n";
+	}
 	*/
 	/*
 	int choose =0, number = 0, hp = 0,randomNumber = 0;
